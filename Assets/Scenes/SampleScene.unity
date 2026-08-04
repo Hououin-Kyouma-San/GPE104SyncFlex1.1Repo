@@ -327,9 +327,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1068091261}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae9de599603b0b74484a6d37b4bebfd3, type: 3}
+  m_Script: {fileID: 11500000, guid: d0d4e32ad96f3694c9a43fe1125e2f2e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpriteScaler
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteMover
+  moveSpeed: 5
+  minX: -10
+  maxX: 10
+  minY: -5
+  maxY: 5
+  teleportKey: 116
+  quitKey: 27
 --- !u!1 &2042305883
 GameObject:
   m_ObjectHideFlags: 0
