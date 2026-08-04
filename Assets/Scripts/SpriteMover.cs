@@ -20,9 +20,9 @@ public class SpriteMover : MonoBehaviour
 
     void Start()
     {
-        // Multiply movement speed on start by a fraction and multiply by deltaTime (makes indepentent of framerate)
+        // Multiply movement speed on start by a fraction
         tf = transform;
-        moveSpeed = moveSpeed * 0.1 * Time.deltaTime;
+        moveSpeed = moveSpeed * 0.1;
     }
 
     // Update is called once per frame
@@ -39,16 +39,16 @@ public class SpriteMover : MonoBehaviour
             tf.position = newPosition;
         }
 
-        // Controls up movement
+        // Control up movement and multiply by deltaTime (makes indepentent of framerate)
         if (Input.GetKey(KeyCode.W))
         {
-            tf.position = tf.position + Vector3.up * (float)moveSpeed;
+            tf.position = tf.position + Vector3.up * (float)moveSpeed * Time.deltaTime;
         }
 
-        // Controls down movement
+        // Control down movement and multiply by deltaTime (makes indepentent of framerate)
         if (Input.GetKey(KeyCode.S))
         {
-            tf.position = tf.position + Vector3.down * (float)moveSpeed;
+            tf.position = tf.position + Vector3.down * (float)moveSpeed * Time.deltaTime;
         }
 
         // Closes game on GetKeyDown

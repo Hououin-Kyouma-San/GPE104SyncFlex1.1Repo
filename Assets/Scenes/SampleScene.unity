@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d4e32ad96f3694c9a43fe1125e2f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteMover
-  moveSpeed: 5
+  moveSpeed: 50
   minX: -10
   maxX: 10
   minY: -5
