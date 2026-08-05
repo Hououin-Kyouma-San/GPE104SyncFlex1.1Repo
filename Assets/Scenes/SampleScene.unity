@@ -331,8 +331,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StarShipPawn
   moveSpeed: 5
-  strafeSpeed: 2.5
-  rotateSpeed: 180
+  strafeSpeed: 3.75
+  rotateSpeed: 270
 --- !u!1 &2042305883
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,10 +424,10 @@ MonoBehaviour:
   quitKey: 27
   upLocal: 119
   downLocal: 115
-  leftLocal: 113
-  rightLocal: 101
-  rotateleftLocal: 97
-  rotaterightLocal: 100
+  leftLocal: 97
+  rightLocal: 100
+  rotateleftLocal: 260
+  rotaterightLocal: 262
 --- !u!4 &2132201576
 Transform:
   m_ObjectHideFlags: 0
