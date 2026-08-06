@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerController : Controller
 {
-    // Make teleport keycode accessible in component properties
-    public KeyCode teleportKey;
+    /*// Make teleport keycode accessible in component properties
+    public KeyCode teleportKey;*/
 
     // Create variable to quit game
     public KeyCode quitKey;
@@ -13,8 +13,16 @@ public class PlayerController : Controller
     public KeyCode downLocal;
     public KeyCode leftLocal;
     public KeyCode rightLocal;
-    public KeyCode rotateleftLocal;
-    public KeyCode rotaterightLocal;
+    public KeyCode rotateLeftLocal;
+    public KeyCode rotateRightLocal;
+    public KeyCode altRotateLeftLocal;
+    public KeyCode altRotateRightLocal;
+
+    // Create variables for accessible teleport keys
+    public KeyCode teleportUpGlobal;
+    public KeyCode teleportDownGlobal;
+    public KeyCode teleportLeftGlobal;
+    public KeyCode teleportRightGlobal;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
@@ -30,6 +38,8 @@ public class PlayerController : Controller
 
     public void MakeDecisions()
     {
+        // Make movement decisions
+
         if (Input.GetKey(upLocal))
         {
             // Tell the pawn to move up
@@ -54,16 +64,42 @@ public class PlayerController : Controller
             pawn.StrafeRight();
         }
 
-        if (Input.GetKey(rotateleftLocal))
+        if (Input.GetKey(rotateLeftLocal) || (Input.GetKey(altRotateLeftLocal)))
         {
             // Tell the pawn to rotate counterclockwise
             pawn.RotateLeft();
         }
 
-        if (Input.GetKey(rotaterightLocal))
+        if (Input.GetKey(rotateRightLocal) || (Input.GetKey(altRotateRightLocal)))
         {
             // Tell the pawn to rotate clockwise
             pawn.RotateRight();
+        }
+
+        // Make teleporting decisions
+
+        if (Input.GetKeyDown(teleportUpGlobal))
+        {
+            // Tell the pawn to teleport up
+            pawn.TeleportUp();
+        }
+
+        if (Input.GetKeyDown(teleportDownGlobal))
+        {
+            // Tell the pawn to teleport down
+            pawn.TeleportDown();
+        }
+
+        if (Input.GetKeyDown(teleportLeftGlobal))
+        {
+            // Tell the pawn to teleport left
+            pawn.TeleportLeft();
+        }
+
+        if (Input.GetKeyDown(teleportRightGlobal))
+        {
+            // Tell the pawn to teleport right
+            pawn.TeleportRight();
         }
     }
 }

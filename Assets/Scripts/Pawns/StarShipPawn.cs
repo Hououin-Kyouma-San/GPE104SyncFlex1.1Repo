@@ -17,6 +17,7 @@ public class StarShipPawn : Pawn
         
     }
 
+    // General movement controls
     public override void MoveUp()
     {
         tf.position = tf.position + (tf.up * moveSpeed * Time.deltaTime);
@@ -45,5 +46,50 @@ public class StarShipPawn : Pawn
     public override void RotateRight()
     {
         tf.Rotate(0f, 0f, -rotateSpeed * Time.deltaTime);
+    }
+
+    // Teleportation controls
+    public override void TeleportUp()
+    {
+        // Get current X and Y positions
+        float xPos = transform.position.x;
+        float yPos = transform.position.y;
+
+        // Teleport up along Y axis
+        Vector3 newPosition = new Vector3(xPos, yPos + (float)2.5);
+        tf.position = newPosition;
+    }
+
+    public override void TeleportDown()
+    {
+        // Get current X and Y positions
+        float xPos = transform.position.x;
+        float yPos = transform.position.y;
+
+        // Teleport down along Y axis
+        Vector3 newPosition = new Vector3(xPos, yPos - (float)2.5);
+        tf.position = newPosition;
+    }
+
+    public override void TeleportLeft()
+    {
+        // Get current X and Y positions
+        float xPos = transform.position.x;
+        float yPos = transform.position.y;
+
+        // Teleport left along X axis
+        Vector3 newPosition = new Vector3(xPos - (float)2.5, yPos);
+        tf.position = newPosition;
+    }
+
+    public override void TeleportRight()
+    {
+        // Get current X and Y positions
+        float xPos = transform.position.x;
+        float yPos = transform.position.y;
+
+        // Teleport right along X axis
+        Vector3 newPosition = new Vector3(xPos + (float)2.5, yPos);
+        tf.position = newPosition;
     }
 }

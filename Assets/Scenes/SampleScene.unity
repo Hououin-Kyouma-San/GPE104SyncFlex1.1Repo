@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 1068091263}
   - component: {fileID: 1068091262}
   - component: {fileID: 1068091266}
+  - component: {fileID: 1068091267}
   m_Layer: 0
   m_Name: StarShip
   m_TagString: Untagged
@@ -312,7 +313,7 @@ Transform:
   m_GameObject: {fileID: 1068091261}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -333,6 +334,24 @@ MonoBehaviour:
   moveSpeed: 5
   strafeSpeed: 3.75
   rotateSpeed: 270
+  minX1: 0
+  maxX1: 0
+  minY1: 0
+  maxY1: 0
+--- !u!114 &1068091267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068091261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775c4126dcf48ff4e943fda9a4e35e54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  currentHealth: 0
+  maxHealth: 0
 --- !u!1 &2042305883
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,14 +439,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   pawn: {fileID: 1068091266}
-  teleportKey: 116
   quitKey: 27
   upLocal: 119
   downLocal: 115
   leftLocal: 97
   rightLocal: 100
-  rotateleftLocal: 260
-  rotaterightLocal: 262
+  rotateLeftLocal: 113
+  rotateRightLocal: 101
+  altRotateLeftLocal: 260
+  altRotateRightLocal: 262
+  teleportUpGlobal: 273
+  teleportDownGlobal: 274
+  teleportLeftGlobal: 276
+  teleportRightGlobal: 275
 --- !u!4 &2132201576
 Transform:
   m_ObjectHideFlags: 0

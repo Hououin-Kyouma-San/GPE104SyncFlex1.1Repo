@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public abstract class Pawn : MonoBehaviour
 {
@@ -6,6 +7,12 @@ public abstract class Pawn : MonoBehaviour
     public float moveSpeed;
     public float strafeSpeed;
     public float rotateSpeed;
+
+    // Make variables for random teleportation within set values
+    public float minX1;
+    public float maxX1;
+    public float minY1;
+    public float maxY1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,6 +26,7 @@ public abstract class Pawn : MonoBehaviour
         
     }
 
+    // Movement
     public abstract void MoveUp();
 
     public abstract void MoveDown();
@@ -30,4 +38,13 @@ public abstract class Pawn : MonoBehaviour
     public abstract void RotateLeft();
 
     public abstract void RotateRight();
+
+    // Teleport
+    public abstract void TeleportUp();
+
+    public abstract void TeleportDown();
+
+    public abstract void TeleportLeft();
+
+    public abstract void TeleportRight();
 }
