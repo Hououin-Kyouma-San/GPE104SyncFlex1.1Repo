@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 
@@ -9,7 +10,10 @@ public class StarShipPawn : Pawn
     void Start()
     {
         tf = transform;
+        maxSpeed = moveSpeed + boostSpeed;
+        baseSpeed = moveSpeed;
     }
+
 
     // Update is called once per frame
     void Update()
@@ -48,7 +52,59 @@ public class StarShipPawn : Pawn
         tf.Rotate(0f, 0f, -rotateSpeed * Time.deltaTime);
     }
 
+    // Boost and braking controls
+
+    public override void Afterburners()
+    {
+        // Create timer coroutine
+        StartCoroutine(timer());
+        IEnumerator timer()
+        {
+            // Set max boost speed
+            moveSpeed = baseSpeed + boostSpeed;
+            if (moveSpeed >= maxSpeed)
+            {
+                moveSpeed = maxSpeed;
+            }
+
+            // Set timer delay
+            yield return new WaitForSeconds(15);
+
+            // Prevent speed from going below baseline
+            moveSpeed = boostSpeed - baseSpeed;
+            if (moveSpeed <= baseSpeed)
+            {
+                moveSpeed = baseSpeed;
+            }
+        }
+    }
+
+    public override void Airbrakes()
+    {
+        // Sloooooowww dooooowwwnnnnn
+        moveSpeed = moveSpeed - 7.5f * Time.deltaTime;
+        if (moveSpeed <= 0)
+        {
+            moveSpeed = 0;
+        }
+    }
+
+    public override void BrakeRelease()
+    {
+        moveSpeed = baseSpeed;
+    }
+
     // Teleportation controls
+    public override void TeleportRandom()
+    {
+        // Create random numbers ranges for positioning
+        float randomX = Random.Range(minX, maxX);
+        float randomY = Random.Range(minY, maxY);
+
+        // Create mew vector position for teleporting
+        Vector3 newPosition = new Vector3(randomX, randomY, 0);
+        tf.position = newPosition;
+    }
     public override void TeleportUp()
     {
         // Get current X and Y positions

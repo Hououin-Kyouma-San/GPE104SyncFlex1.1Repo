@@ -8,11 +8,16 @@ public abstract class Pawn : MonoBehaviour
     public float strafeSpeed;
     public float rotateSpeed;
 
+    // Create methods for controlling speed boosts
+    protected float maxSpeed;
+    protected float baseSpeed;
+    protected float boostSpeed = 10f;
+
     // Make variables for random teleportation within set values
-    public float minX1;
-    public float maxX1;
-    public float minY1;
-    public float maxY1;
+    public float minX;
+    public float maxX;
+    public float minY;
+    public float maxY;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,7 +44,16 @@ public abstract class Pawn : MonoBehaviour
 
     public abstract void RotateRight();
 
+    // Boost and braking
+    public abstract void Afterburners();
+
+    public abstract void Airbrakes();
+
+    public abstract void BrakeRelease();
+
     // Teleport
+    public abstract void TeleportRandom();
+   
     public abstract void TeleportUp();
 
     public abstract void TeleportDown();

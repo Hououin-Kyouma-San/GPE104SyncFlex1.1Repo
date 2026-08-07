@@ -334,10 +334,10 @@ MonoBehaviour:
   moveSpeed: 5
   strafeSpeed: 3.75
   rotateSpeed: 270
-  minX1: 0
-  maxX1: 0
-  minY1: 0
-  maxY1: 0
+  minX: -7
+  maxX: 7
+  minY: -3.5
+  maxY: 3.5
 --- !u!114 &1068091267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,6 +448,11 @@ MonoBehaviour:
   rotateRightLocal: 101
   altRotateLeftLocal: 260
   altRotateRightLocal: 262
+  afterburnersLocal: 304
+  airbrakesLocal: 306
+  altAfterburnersLocal: 303
+  altAirbrakesLocal: 305
+  teleportRandomGlobal: 116
   teleportUpGlobal: 273
   teleportDownGlobal: 274
   teleportLeftGlobal: 276

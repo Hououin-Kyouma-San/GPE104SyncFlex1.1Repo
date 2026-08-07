@@ -18,7 +18,14 @@ public class PlayerController : Controller
     public KeyCode altRotateLeftLocal;
     public KeyCode altRotateRightLocal;
 
+    // Create variables for accessible boost & braking keys
+    public KeyCode afterburnersLocal;
+    public KeyCode airbrakesLocal;
+    public KeyCode altAfterburnersLocal;
+    public KeyCode altAirbrakesLocal;
+
     // Create variables for accessible teleport keys
+    public KeyCode teleportRandomGlobal;
     public KeyCode teleportUpGlobal;
     public KeyCode teleportDownGlobal;
     public KeyCode teleportLeftGlobal;
@@ -76,7 +83,33 @@ public class PlayerController : Controller
             pawn.RotateRight();
         }
 
+        // Make boost and braking decisions
+
+        if (Input.GetKeyDown(afterburnersLocal) || (Input.GetKey(altAfterburnersLocal)))
+        {
+            // Tell the pawn to engage afterburners
+            pawn.Afterburners();
+        }
+
+        if (Input.GetKey(airbrakesLocal) || (Input.GetKey(altAirbrakesLocal)))
+        {
+            // Tell the pawn to engage airbrakes
+            pawn.Airbrakes();
+        }
+
+        else if (Input.GetKeyUp(airbrakesLocal) || (Input.GetKeyUp(altAirbrakesLocal)))
+        {
+            // Tell the pawn to release airbrakes
+            pawn.BrakeRelease();
+        }
+
         // Make teleporting decisions
+
+        if (Input.GetKeyDown(teleportRandomGlobal))
+        {
+            // Tell the pawn to teleport up
+            pawn.TeleportRandom();
+        }
 
         if (Input.GetKeyDown(teleportUpGlobal))
         {
