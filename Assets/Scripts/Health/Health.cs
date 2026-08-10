@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField]
-    private float currentHealth;
+ public float currentHealth;
 
-    [SerializeField]
-    private float maxHealth;
+ public float maxHealth;
 
     // int - whole number values (positive, negative, and 0)
     // float - fractional number values
@@ -64,6 +62,12 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             // Die
+            Death deathComponent = GetComponent<Death>();
+
+            if (deathComponent != null)
+            {
+                deathComponent.Die();
+            }
         }
     }
 }

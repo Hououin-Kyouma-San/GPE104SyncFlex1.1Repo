@@ -9,9 +9,9 @@ public abstract class Pawn : MonoBehaviour
     public float rotateSpeed;
 
     // Create methods for controlling speed boosts
-    protected float maxSpeed;
-    protected float baseSpeed;
-    protected float boostSpeed = 10f;
+    internal float maxSpeed;
+    internal float baseSpeed;
+    public float boostSpeed;
 
     // Make variables for random teleportation within set values
     public float minX;

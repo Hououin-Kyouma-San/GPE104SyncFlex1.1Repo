@@ -45,94 +45,99 @@ public class PlayerController : Controller
 
     public void MakeDecisions()
     {
-        // Make movement decisions
-
-        if (Input.GetKey(upLocal))
+        // Check for pawn
+        if (pawn != null)
         {
-            // Tell the pawn to move up
-            pawn.MoveUp();
+            // Make movement decisions
+
+            if (Input.GetKey(upLocal))
+            {
+                // Tell the pawn to move up
+                pawn.MoveUp();
+            }
+
+            if (Input.GetKey(downLocal))
+            {
+                // Tell the pawn to move down
+                pawn.MoveDown();
+            }
+
+            if (Input.GetKey(leftLocal))
+            {
+                // Tell the pawn to strafe left
+                pawn.StrafeLeft();
+            }
+
+            if (Input.GetKey(rightLocal))
+            {
+                // Tell the pawn to strafe right
+                pawn.StrafeRight();
+            }
+
+            if (Input.GetKey(rotateLeftLocal) || (Input.GetKey(altRotateLeftLocal)))
+            {
+                // Tell the pawn to rotate counterclockwise
+                pawn.RotateLeft();
+            }
+
+            if (Input.GetKey(rotateRightLocal) || (Input.GetKey(altRotateRightLocal)))
+            {
+                // Tell the pawn to rotate clockwise
+                pawn.RotateRight();
+            }
+
+            // Make boost and braking decisions
+
+            if (Input.GetKeyDown(afterburnersLocal) || (Input.GetKey(altAfterburnersLocal)))
+            {
+                // Tell the pawn to engage afterburners
+                pawn.Afterburners();
+            }
+
+            if (Input.GetKey(airbrakesLocal) || (Input.GetKey(altAirbrakesLocal)))
+            {
+                // Tell the pawn to engage airbrakes
+                pawn.Airbrakes();
+            }
+
+            else if (Input.GetKeyUp(airbrakesLocal) || (Input.GetKeyUp(altAirbrakesLocal)))
+            {
+                // Tell the pawn to release airbrakes
+                pawn.BrakeRelease();
+            }
+
+            // Make teleporting decisions
+
+            if (Input.GetKeyDown(teleportRandomGlobal))
+            {
+                // Tell the pawn to teleport up
+                pawn.TeleportRandom();
+            }
+
+            if (Input.GetKeyDown(teleportUpGlobal))
+            {
+                // Tell the pawn to teleport up
+                pawn.TeleportUp();
+            }
+
+            if (Input.GetKeyDown(teleportDownGlobal))
+            {
+                // Tell the pawn to teleport down
+                pawn.TeleportDown();
+            }
+
+            if (Input.GetKeyDown(teleportLeftGlobal))
+            {
+                // Tell the pawn to teleport left
+                pawn.TeleportLeft();
+            }
+
+            if (Input.GetKeyDown(teleportRightGlobal))
+            {
+                // Tell the pawn to teleport right
+                pawn.TeleportRight();
+            }
         }
 
-        if (Input.GetKey(downLocal))
-        {
-            // Tell the pawn to move down
-            pawn.MoveDown();
-        }
-
-        if (Input.GetKey(leftLocal))
-        {
-            // Tell the pawn to strafe left
-            pawn.StrafeLeft();
-        }
-
-        if (Input.GetKey(rightLocal))
-        {
-            // Tell the pawn to strafe right
-            pawn.StrafeRight();
-        }
-
-        if (Input.GetKey(rotateLeftLocal) || (Input.GetKey(altRotateLeftLocal)))
-        {
-            // Tell the pawn to rotate counterclockwise
-            pawn.RotateLeft();
-        }
-
-        if (Input.GetKey(rotateRightLocal) || (Input.GetKey(altRotateRightLocal)))
-        {
-            // Tell the pawn to rotate clockwise
-            pawn.RotateRight();
-        }
-
-        // Make boost and braking decisions
-
-        if (Input.GetKeyDown(afterburnersLocal) || (Input.GetKey(altAfterburnersLocal)))
-        {
-            // Tell the pawn to engage afterburners
-            pawn.Afterburners();
-        }
-
-        if (Input.GetKey(airbrakesLocal) || (Input.GetKey(altAirbrakesLocal)))
-        {
-            // Tell the pawn to engage airbrakes
-            pawn.Airbrakes();
-        }
-
-        else if (Input.GetKeyUp(airbrakesLocal) || (Input.GetKeyUp(altAirbrakesLocal)))
-        {
-            // Tell the pawn to release airbrakes
-            pawn.BrakeRelease();
-        }
-
-        // Make teleporting decisions
-
-        if (Input.GetKeyDown(teleportRandomGlobal))
-        {
-            // Tell the pawn to teleport up
-            pawn.TeleportRandom();
-        }
-
-        if (Input.GetKeyDown(teleportUpGlobal))
-        {
-            // Tell the pawn to teleport up
-            pawn.TeleportUp();
-        }
-
-        if (Input.GetKeyDown(teleportDownGlobal))
-        {
-            // Tell the pawn to teleport down
-            pawn.TeleportDown();
-        }
-
-        if (Input.GetKeyDown(teleportLeftGlobal))
-        {
-            // Tell the pawn to teleport left
-            pawn.TeleportLeft();
-        }
-
-        if (Input.GetKeyDown(teleportRightGlobal))
-        {
-            // Tell the pawn to teleport right
-            pawn.TeleportRight();
-        }
     }
 }

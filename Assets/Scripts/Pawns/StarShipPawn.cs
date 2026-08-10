@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
+using UnityEngine.UIElements;
 
 public class StarShipPawn : Pawn
 {
@@ -12,6 +13,8 @@ public class StarShipPawn : Pawn
         tf = transform;
         maxSpeed = moveSpeed + boostSpeed;
         baseSpeed = moveSpeed;
+
+        //GetComponent<Health>().TakeDamage(10.0f);
     }
 
 
