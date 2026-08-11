@@ -31,6 +31,9 @@ public class PlayerController : Controller
     public KeyCode teleportLeftGlobal;
     public KeyCode teleportRightGlobal;
 
+    // Create variable for spawning and firing bullets
+    public KeyCode fireKey;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
     {
@@ -137,7 +140,12 @@ public class PlayerController : Controller
                 // Tell the pawn to teleport right
                 pawn.TeleportRight();
             }
-        }
 
+            if (Input.GetKeyDown(fireKey) )
+            {
+                // Tell the pawn to shoot a bullet
+                pawn.Shoot();
+            }
+        }
     }
 }

@@ -7,12 +7,15 @@ public class StarShipPawn : Pawn
 {
     private Transform tf;
 
+    private Shooter shooter;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         tf = transform;
         maxSpeed = moveSpeed + boostSpeed;
         baseSpeed = moveSpeed;
+        shooter = GetComponent<Shooter>();
 
         //GetComponent<Health>().TakeDamage(10.0f);
     }
@@ -150,5 +153,17 @@ public class StarShipPawn : Pawn
         // Teleport right along X axis
         Vector3 newPosition = new Vector3(xPos + (float)2.5, yPos);
         tf.position = newPosition;
+    }
+
+    public override void Shoot()
+    {
+        {
+            if (shooter != null)
+            {
+                shooter.Shoot();
+
+                Debug.Log("Shooting");
+            }
+        }
     }
 }

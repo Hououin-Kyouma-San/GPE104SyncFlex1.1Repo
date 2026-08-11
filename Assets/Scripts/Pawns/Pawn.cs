@@ -61,4 +61,7 @@ public abstract class Pawn : MonoBehaviour
     public abstract void TeleportLeft();
 
     public abstract void TeleportRight();
+
+    // Shooting
+    public abstract void Shoot();
 }
