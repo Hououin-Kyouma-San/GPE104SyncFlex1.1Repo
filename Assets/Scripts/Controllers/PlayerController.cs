@@ -48,6 +48,12 @@ public class PlayerController : Controller
 
     public void MakeDecisions()
     {
+        // Closes game on GetKeyDown
+        if (Input.GetKey(quitKey))
+        {
+            Application.Quit();
+        }
+
         // Check for pawn
         if (pawn != null)
         {
