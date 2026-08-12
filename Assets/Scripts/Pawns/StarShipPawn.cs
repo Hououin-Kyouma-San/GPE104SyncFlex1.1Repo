@@ -9,6 +9,11 @@ public class StarShipPawn : Pawn
 
     private Shooter shooter;
 
+    private void Awake()
+    {
+        GameManager.instance.playerPawn = this;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
