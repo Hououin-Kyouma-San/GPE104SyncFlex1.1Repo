@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,13 +14,19 @@ public class GameManager : MonoBehaviour
     // Keeps track of list of Meteors
     public List<DeathMeteor> meteors;
 
-    // Game States
+    // Game states
     public GameObject TitleScreenStateObject;
     public GameObject MainMenuStateObject;
     public GameObject OptionsScreenStateObject;
     public GameObject CreditsScreenStateObject;
     public GameObject GameplayStateObject;
     public GameObject GameOverStateObject;
+
+    // Quit function
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 
     private void Awake()
     {
@@ -48,6 +55,15 @@ public class GameManager : MonoBehaviour
         if (playerPawn == null)
         {
             Debug.Log("Failure");
+
+            // Create timer coroutine
+            StartCoroutine(timer());
+            IEnumerator timer()
+            {
+                // Set timer delay
+                yield return new WaitForSeconds(3);
+                ActivateGameOverScreen();
+            }
         }
         else if (playerPawn != null && meteors.Count == 0)
         {
@@ -99,7 +115,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Activates Gameplay screen
-    public void ActivateGameplayScreen()
+    public void ActivateGameplay()
     {
         DeactivateAllStates();
 

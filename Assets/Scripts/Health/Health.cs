@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
- public float currentHealth;
+    public float currentHealth;
 
- public float maxHealth;
+    public float maxHealth;
+
+    public Image healthBar;
 
     // int - whole number values (positive, negative, and 0)
     // float - fractional number values
@@ -15,7 +18,7 @@ public class Health : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -43,6 +46,8 @@ public class Health : MonoBehaviour
         /* // Shorthand version that I don't quite get yet
         currentHealth += amount; */
 
+        UpdateFillAmount();
+
         // Prevent health from exceeding maximum value
         if (currentHealth >= maxHealth)
         {
@@ -59,6 +64,8 @@ public class Health : MonoBehaviour
 
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
+        UpdateFillAmount();
+
         if (currentHealth <= 0)
         {
             // Die
@@ -68,6 +75,14 @@ public class Health : MonoBehaviour
             {
                 deathComponent.Die();
             }
+        }
+    }
+
+    public void UpdateFillAmount()
+    {
+        if (healthBar != null)
+        {
+            healthBar.fillAmount = currentHealth / maxHealth;
         }
     }
 }
