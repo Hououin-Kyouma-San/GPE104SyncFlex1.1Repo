@@ -16,6 +16,6 @@ public class BulletMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            tf.position = tf.position + (tf.up * speed * Time.deltaTime);
+        tf.position = tf.position + (tf.up * speed * Time.deltaTime);
     }
 }

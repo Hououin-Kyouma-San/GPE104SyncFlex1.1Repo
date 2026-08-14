@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1660852907560774770}
   - component: {fileID: -8583834402209080208}
   - component: {fileID: -5043368053307356396}
+  - component: {fileID: -6018739254454879716}
   m_Layer: 0
   m_Name: Meteor
   m_TagString: Untagged
@@ -218,6 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   currentHealth: 100
   maxHealth: 100
+  healthBar: {fileID: 0}
 --- !u!114 &-5043368053307356396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,3 +232,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab017d9af065ba4bb3c31ec63ea2919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeathMeteor
+--- !u!114 &-6018739254454879716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658583821992081697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea54471b725648c4497d2d3cb1a1eb5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScreenWrap
