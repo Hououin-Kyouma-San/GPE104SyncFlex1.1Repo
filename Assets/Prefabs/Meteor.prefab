@@ -217,10 +217,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   currentHealth: 100
+  currentVolume: 0
   maxHealth: 100
   healthBar: {fileID: 0}
-  damageSoundEffect: {fileID: 8300000, guid: ab297b593498a6e47ba84de770477cbe, type: 3}
-  damageSoundSource: {fileID: 0}
+  damageSoundEffect: {fileID: 8300000, guid: 8401456349c492a489ed90469e317e43, type: 3}
+  deathSoundEffect: {fileID: 0}
 --- !u!114 &-5043368053307356396
 MonoBehaviour:
   m_ObjectHideFlags: 0

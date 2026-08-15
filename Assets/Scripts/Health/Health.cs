@@ -5,12 +5,24 @@ public class Health : MonoBehaviour
 {
     public float currentHealth;
 
+    public float currentVolume;
+
     public float maxHealth;
 
     public Image healthBar;
 
     // Variable for the AudioClip (sound file!)
     public AudioClip damageSoundEffect;
+
+    // Variable for the AudioClip (sound file!)
+    public AudioClip deathSoundEffect;
+
+    //public void SetVolume(float volumeAmount)
+    //{
+    //    AudioSource audioComponent = GetComponent<AudioSource>(); 
+        
+    //    audioComponent.volume = volumeAmount;
+    //} Testing
 
     // int - whole number values (positive, negative, and 0)
     // float - fractional number values
@@ -77,6 +89,12 @@ public class Health : MonoBehaviour
 
             if (deathComponent != null)
             {
+                if (deathSoundEffect != null)
+                {
+                    // Play back our sound effect
+                    Death.PlayClip2D(deathSoundEffect, 1);
+                }
+
                 deathComponent.Die();
             }
         }

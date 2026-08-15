@@ -7,10 +7,14 @@ public class ShooterBullet : Shooter
 
     public Transform bulletSpawnpoint;
 
+    public StarShipPawn starShip;
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        starShip = GetComponent<StarShipPawn>();
     }
 
     // Update is called once per frame
@@ -23,7 +27,8 @@ public class ShooterBullet : Shooter
     {
         if (bulletInstance != null && bulletSpawnpoint != null)
         {
-            Instantiate(bulletInstance, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
+            GameObject bullet = Instantiate(bulletInstance, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
+            bullet.GetComponent<BulletMovement>().speed += starShip.moveSpeed;
         }
     }
 }
