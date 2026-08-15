@@ -25,7 +25,7 @@ public class ShooterBullet : Shooter
 
     public override void Shoot()
     {
-        if (bulletInstance != null && bulletSpawnpoint != null)
+        if (bulletInstance != null && bulletSpawnpoint == isActiveAndEnabled)
         {
             GameObject bullet = Instantiate(bulletInstance, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
             bullet.GetComponent<BulletMovement>().speed += starShip.moveSpeed;

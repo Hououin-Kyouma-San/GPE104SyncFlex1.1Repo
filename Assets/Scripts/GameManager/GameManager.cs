@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerPawn == null)
+        if (playerPawn.isActiveAndEnabled == false)
         {
             Debug.Log("Failure");
 
@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
 
         // Do anything else to get our game to run
 
-        // TODO: Return to implement fully
+            // TODO: Return to implement fully
     }
 
     // Activates game over screen
