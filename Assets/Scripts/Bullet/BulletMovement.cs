@@ -1,11 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
-public class BulletMovement : MonoBehaviour
+public class BulletMovement : ShooterBullet
 {
     public float speed;
 
     private Transform tf;
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,6 +18,7 @@ public class BulletMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tf.position = tf.position + (tf.up * speed * Time.deltaTime);
+            tf.position = tf.position + (tf.up * speed * Time.deltaTime);
+        Debug.Log("bullet speed: " + speed);
     }
 }

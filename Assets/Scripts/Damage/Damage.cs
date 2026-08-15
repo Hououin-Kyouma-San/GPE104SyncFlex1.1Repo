@@ -4,7 +4,6 @@ using UnityEngine;
 public class Damage : MonoBehaviour
 {
     public float damageAmount;
-
     public bool instantKill;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,8 +24,8 @@ public class Damage : MonoBehaviour
         Health health = collision.gameObject.GetComponent<Health>();
         Pawn starship = collision.gameObject.GetComponent<Pawn>();
 
-        // Checks for health and if the movement speed is greater than or equal to default
-        if (health != null && starship.moveSpeed >= starship.baseSpeed)
+        // Checks for health, and checks if movement speed is less or at max speed
+        if (health != null && starship.moveSpeed <= starship.maxSpeed)
         {
             // Will kill instantly at all speeds if true
             if (instantKill)
@@ -36,56 +35,39 @@ public class Damage : MonoBehaviour
                 IEnumerator timer()
                 {
                     // Set timer delay
-                    yield return new WaitForSeconds(0.25f);
+                    yield return new WaitForSeconds(0.125f);
 
                     if (health != null)
                     {
                         health.TakeDamage(health.currentHealth);
                     }
                 }
-
             }
-            // Will cause damage if movement speed is default or higher
-            else
+            // Checks for health, and causes damage *only* if movement speed is default or higher
+            else if (health != null && starship.moveSpeed >= starship.baseSpeed)
             {
                 // Create timer coroutine
                 StartCoroutine(timer());
                 IEnumerator timer()
                 {
                     // Set timer delay
-                    yield return new WaitForSeconds(0.25f);
+                    yield return new WaitForSeconds(0.125f);
 
-                    if (health != null)
+                    // Checks if under max speed, and deals damage based on damage variable
+                    if (starship.moveSpeed < starship.maxSpeed)
                     {
                         health.TakeDamage(damageAmount);
                     }
-                }
-            }
-        }
 
-        if (health != null)
-        {
-            // Starship will explode when impacting at max speed, regardless of instant kill boolean
-            if (starship.moveSpeed == starship.maxSpeed)
-            {
-                // Create timer coroutine
-                StartCoroutine(timer());
-                IEnumerator timer()
-                {
-                    // Set timer delay
-                    yield return new WaitForSeconds(0.25f);
-                    
-                    if (health != null)
+                    // Checks for max speed, and instantly kills if true (doesn't use instantKill)
+                    else if (starship.moveSpeed == starship.maxSpeed)
                     {
-                        health.TakeDamage(health.maxHealth);
+                        health.TakeDamage(health.currentHealth);
                     }
                 }
             }
-
-            Debug.Log("The GameObject of the other object is named: " + collision.gameObject.name);
         }
-    }
-        
+    }    
 
     //Damage gameObject with health component on trigger, follows tutorial
     private void OnTriggerEnter2D(Collider2D collision)

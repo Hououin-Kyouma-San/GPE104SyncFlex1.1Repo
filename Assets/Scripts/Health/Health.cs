@@ -5,9 +5,24 @@ public class Health : MonoBehaviour
 {
     public float currentHealth;
 
+    public float currentVolume;
+
     public float maxHealth;
 
     public Image healthBar;
+
+    // Variable for the AudioClip (sound file!)
+    public AudioClip damageSoundEffect;
+
+    // Variable for the AudioClip (sound file!)
+    public AudioClip deathSoundEffect;
+
+    //public void SetVolume(float volumeAmount)
+    //{
+    //    AudioSource audioComponent = GetComponent<AudioSource>(); 
+        
+    //    audioComponent.volume = volumeAmount;
+    //} Testing
 
     // int - whole number values (positive, negative, and 0)
     // float - fractional number values
@@ -27,7 +42,7 @@ public class Health : MonoBehaviour
         
     }
 
-    // Get function that allows protected access to private values preventing them from being altered
+    // Healing functions
     public float GetHealth()
     {
         return currentHealth;
@@ -40,32 +55,33 @@ public class Health : MonoBehaviour
 
     public void Heal(float amount)
     {
-        // CurrentHealth variable looks for the currentHealth value, then adds an amount, then sets the new currentHealth to the new value
-        currentHealth = currentHealth + amount;
+        // Gets currentHealth and adds an amount, returning new currentHealth value
+        currentHealth += amount;
 
-        /* // Shorthand version that I don't quite get yet
-        currentHealth += amount; */
+        // Gets currentHealth and prevents it from exceeding maxHealth
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
         UpdateFillAmount();
-
-        // Prevent health from exceeding maximum value
-        if (currentHealth >= maxHealth)
-        {
-            currentHealth = maxHealth;
-        }
-
-        /* // Shorthand version that I can't easily explain
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); */
     }
 
+    // Damage functions
     public void TakeDamage(float amount)
     {
+        if (damageSoundEffect !=null)
+        {
+            // Play back our sound effect
+            AudioSource.PlayClipAtPoint(damageSoundEffect, transform.position);
+        }
+
+        // Gets currentHealth and subtracts an amount, returning new currentHealth value
         currentHealth -= amount;
 
+        // Gets currentHealth and prevents it from falling below zero
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
         UpdateFillAmount();
 
+        // Checks if currentHealth is less than or equal to zero
         if (currentHealth <= 0)
         {
             // Die
@@ -73,6 +89,12 @@ public class Health : MonoBehaviour
 
             if (deathComponent != null)
             {
+                if (deathSoundEffect != null)
+                {
+                    // Play back our sound effect
+                    Death.PlayClip2D(deathSoundEffect, 1);
+                }
+
                 deathComponent.Die();
             }
         }

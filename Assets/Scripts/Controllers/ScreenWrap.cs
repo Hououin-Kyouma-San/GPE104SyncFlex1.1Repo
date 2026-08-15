@@ -7,7 +7,7 @@ public class ScreenWrap : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        myRigidBody = GetComponent <Rigidbody2D>();
+        myRigidBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -27,25 +27,21 @@ public class ScreenWrap : MonoBehaviour
         if (ScreenPos.x <= 0)
         {
             transform.position = new Vector2(rightSideOfScreenInWorld, transform.position.y);
-            Debug.Log("WHERE THE FUCK AM I!?");
         }
 
         else if (ScreenPos.x >= Screen.width)
         {
             transform.position = new Vector2(leftSideOfScreenInWorld, transform.position.y);
-            Debug.Log("WHERE THE FUCK AM I!?");
         }
 
         else if (ScreenPos.y <= 0)
         {
             transform.position = new Vector2(transform.position.x, topSideOfScreenInWorld);
-            Debug.Log("WHERE THE FUCK AM I!?");
         }
 
         else if (ScreenPos.y >= Screen.height)
         {
-            transform.position = new Vector2(transform.position.x, bottomSideOfScreenInWorld);
-            Debug.Log("WHERE THE FUCK AM I!?");
+            transform.position = new Vector2(transform.position.x, bottomSideOfScreenInWorld); ;
         }
     }
 }

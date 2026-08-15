@@ -566,6 +566,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Meteor (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4059134244962956740, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.3368192
@@ -760,6 +764,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Meteor (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4059134244962956740, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.6688466
@@ -907,6 +915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 562982187}
   - component: {fileID: 562982186}
+  - component: {fileID: 562982188}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -926,7 +935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0034efcb78181d243aa2b3db6b1a2f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  playerPawn: {fileID: 0}
+  playerPawn: {fileID: 1068091266}
   meteors: []
   TitleScreenStateObject: {fileID: 1175729729}
   MainMenuStateObject: {fileID: 1963976360}
@@ -949,6 +958,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &562982188
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562982185}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: fc5af015011ea3745b7f78ea1dd1049f, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.125
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &564718497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -960,6 +1066,10 @@ PrefabInstance:
     - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_Name
       value: Meteor (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4059134244962956740, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1121,6 +1231,10 @@ PrefabInstance:
     - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_Name
       value: Meteor (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4059134244962956740, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1311,6 +1425,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Meteor (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4059134244962956740, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.123096
@@ -1474,6 +1592,10 @@ PrefabInstance:
     - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_Name
       value: Meteor (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4059134244962956740, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1846,6 +1968,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Meteor (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4059134244962956740, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.8995934
@@ -1899,9 +2025,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1660852907560774770, guid: 1d22c053c84481048bab9102ad534433, type: 3}
+      propertyPath: instantKill
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_Name
       value: Meteor (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4059134244962956740, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2095,8 +2229,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   currentHealth: 100
+  currentVolume: 0
   maxHealth: 100
   healthBar: {fileID: 972629053}
+  damageSoundEffect: {fileID: 8300000, guid: 8401456349c492a489ed90469e317e43, type: 3}
+  deathSoundEffect: {fileID: 8300000, guid: 5e1a9f876d3dafd47bc6b3dde25135fa, type: 3}
 --- !u!114 &1068091268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2217,6 +2354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShooterBullet
   bulletInstance: {fileID: 5416607736195990752, guid: 94b0f455cbf5fe24a83780b5c0faa9e0, type: 3}
   bulletSpawnpoint: {fileID: 2042305885}
+  starShip: {fileID: 0}
 --- !u!114 &1068091272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2240,6 +2378,10 @@ PrefabInstance:
     - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_Name
       value: Meteor (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4059134244962956740, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2372,6 +2514,10 @@ PrefabInstance:
     - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_Name
       value: Meteor (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4059134244962956740, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2744,6 +2890,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Meteor (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4059134244962956740, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.1358082
@@ -2969,6 +3119,10 @@ PrefabInstance:
     - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_Name
       value: Meteor (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4059134244962956740, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3376,6 +3530,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Meteor (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4059134244962956740, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.5823226
@@ -3550,9 +3708,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8583834402209080208, guid: 1d22c053c84481048bab9102ad534433, type: 3}
+      propertyPath: currentHealth
+      value: 100.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_Name
       value: Meteor (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4059134244962956740, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3915,6 +4081,10 @@ PrefabInstance:
     - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_Name
       value: Meteor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3658583821992081697, guid: 1d22c053c84481048bab9102ad534433, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4059134244962956740, guid: 1d22c053c84481048bab9102ad534433, type: 3}
       propertyPath: m_LocalPosition.x

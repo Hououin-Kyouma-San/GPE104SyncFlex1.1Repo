@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1660852907560774770}
   - component: {fileID: -8583834402209080208}
   - component: {fileID: -5043368053307356396}
-  - component: {fileID: -6018739254454879716}
+  - component: {fileID: -546803858878777765}
   m_Layer: 0
   m_Name: Meteor
   m_TagString: Untagged
@@ -218,8 +218,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   currentHealth: 100
+  currentVolume: 0
   maxHealth: 100
   healthBar: {fileID: 0}
+  damageSoundEffect: {fileID: 8300000, guid: 8401456349c492a489ed90469e317e43, type: 3}
+  deathSoundEffect: {fileID: 0}
 --- !u!114 &-5043368053307356396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab017d9af065ba4bb3c31ec63ea2919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeathMeteor
---- !u!114 &-6018739254454879716
+--- !u!114 &-546803858878777765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
