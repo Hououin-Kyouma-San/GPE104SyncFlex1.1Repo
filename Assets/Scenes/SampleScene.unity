@@ -2099,6 +2099,7 @@ GameObject:
   - component: {fileID: 1068091269}
   - component: {fileID: 1068091270}
   - component: {fileID: 1068091271}
+  - component: {fileID: 1068091272}
   m_Layer: 0
   m_Name: StarShip
   m_TagString: Untagged
@@ -2354,6 +2355,18 @@ MonoBehaviour:
   bulletInstance: {fileID: 5416607736195990752, guid: 94b0f455cbf5fe24a83780b5c0faa9e0, type: 3}
   bulletSpawnpoint: {fileID: 2042305885}
   starShip: {fileID: 0}
+--- !u!114 &1068091272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068091261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea54471b725648c4497d2d3cb1a1eb5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScreenWrap
 --- !u!1001 &1080757930
 PrefabInstance:
   m_ObjectHideFlags: 0
