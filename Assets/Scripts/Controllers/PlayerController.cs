@@ -6,7 +6,7 @@ public class PlayerController : Controller
     public KeyCode teleportKey;*/
 
     // Create variable to quit game
-    public KeyCode quitKey;
+    //public KeyCode quitKey;
 
     // Create variables for accessible movement keys
     public KeyCode upLocal;
@@ -49,10 +49,10 @@ public class PlayerController : Controller
     public void MakeDecisions()
     {
         // Closes game on GetKeyDown
-        if (Input.GetKey(quitKey))
-        {
-            Application.Quit();
-        }
+        //if (Input.GetKey(quitKey))
+        //{
+        //    Application.Quit();
+        //}
 
         // Check for pawn
         if (pawn != null)
