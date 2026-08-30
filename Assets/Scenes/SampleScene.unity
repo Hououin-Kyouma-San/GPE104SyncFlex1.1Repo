@@ -1343,10 +1343,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   playerPawn: {fileID: 1068091266}
   meteors: []
-  TitleScreenStateObject: {fileID: 1175729729}
-  MainMenuStateObject: {fileID: 1963976360}
-  OptionsScreenStateObject: {fileID: 774354079}
-  CreditsScreenStateObject: {fileID: 997896093}
   GameplayStateObject: {fileID: 1604163246}
   GameOverStateObject: {fileID: 1930759367}
 --- !u!4 &562982187
@@ -3472,7 +3468,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1175729730
 Transform:
   m_ObjectHideFlags: 0
