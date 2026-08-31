@@ -3042,7 +3042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775c4126dcf48ff4e943fda9a4e35e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  currentLives: 1
+  currentLives: 10
   currentHealth: 100
   currentVolume: 0
   maxHealth: 100
