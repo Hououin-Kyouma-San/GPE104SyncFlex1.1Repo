@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Death : MonoBehaviour
+public abstract class Death : Health
 {
     // Creates new 2D audio spawner
     public static AudioSource PlayClip2D(AudioClip clip, float volume)
@@ -21,18 +21,6 @@ public abstract class Death : MonoBehaviour
         Object.Destroy(audioObject, clip.length);
 
         return audioSource;
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public abstract void Die();

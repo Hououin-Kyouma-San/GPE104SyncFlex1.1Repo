@@ -2909,7 +2909,7 @@ GameObject:
   - component: {fileID: 1068091262}
   - component: {fileID: 1068091266}
   - component: {fileID: 1068091267}
-  - component: {fileID: 1068091268}
+  - component: {fileID: 1068091273}
   - component: {fileID: 1068091269}
   - component: {fileID: 1068091270}
   - component: {fileID: 1068091271}
@@ -3042,24 +3042,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775c4126dcf48ff4e943fda9a4e35e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
+  currentLives: 1
   currentHealth: 100
   currentVolume: 0
   maxHealth: 100
   healthBar: {fileID: 972629053}
   damageSoundEffect: {fileID: 8300000, guid: 8401456349c492a489ed90469e317e43, type: 3}
   deathSoundEffect: {fileID: 8300000, guid: 5e1a9f876d3dafd47bc6b3dde25135fa, type: 3}
---- !u!114 &1068091268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1068091261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1bdb6a40ccd0c54ea8d3e9bdb929a6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DeathDestroy
 --- !u!60 &1068091269
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3181,6 +3170,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea54471b725648c4497d2d3cb1a1eb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScreenWrap
+--- !u!114 &1068091273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068091261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8615205d05270b3498507017c9ec4f5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeathRespawn
+  currentLives: 0
+  currentHealth: 0
+  currentVolume: 0
+  maxHealth: 0
+  healthBar: {fileID: 0}
+  damageSoundEffect: {fileID: 0}
+  deathSoundEffect: {fileID: 0}
 --- !u!1001 &1080757930
 PrefabInstance:
   m_ObjectHideFlags: 0
