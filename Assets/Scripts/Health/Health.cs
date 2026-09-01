@@ -1,9 +1,12 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
     public float currentLives;
+
+    //public TMP_Text livesCounter;
 
     public float currentHealth;
 
@@ -32,17 +35,11 @@ public class Health : MonoBehaviour
     // bool - can store values of either true or false
     // char - can store a single character
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //// Lives functions
+    //public float GetLives()
+    //{
+    //    return currentLives;
+    //}
 
     // Healing functions
     public float GetHealth()
@@ -103,10 +100,17 @@ public class Health : MonoBehaviour
                 // Checks for health and a minimum of one life
                 if (currentHealth <= 0 && currentLives >= 1)
                 {
-                    // Resets health after respawning and subtracts one life
+                    // Resets health amount and UI after respawning
                     SetHealth(maxHealth);
                     UpdateFillAmount();
+
+                    // Resets lives amount and UI after respawning
                     currentLives = currentLives - 1;
+                    //UpdateLives();
+                    /*Implement*/
+
+                    // Resets speed after respawning
+                    GetComponent<StarShipPawn>().BrakeRelease();
                 }
 
                 // Activates if there are no health or lives
