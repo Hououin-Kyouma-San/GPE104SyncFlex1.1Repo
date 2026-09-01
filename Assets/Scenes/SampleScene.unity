@@ -2911,6 +2911,7 @@ GameObject:
   - component: {fileID: 1068091262}
   - component: {fileID: 1068091266}
   - component: {fileID: 1068091267}
+  - component: {fileID: 1068091274}
   - component: {fileID: 1068091273}
   - component: {fileID: 1068091269}
   - component: {fileID: 1068091270}
@@ -3044,8 +3045,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775c4126dcf48ff4e943fda9a4e35e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  currentLives: 10
-  livesCounter: {fileID: 1540231785}
   currentHealth: 100
   currentVolume: 0
   maxHealth: 100
@@ -3185,6 +3184,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8615205d05270b3498507017c9ec4f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeathRespawn
+--- !u!114 &1068091274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068091261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 989a3aac154e99a43a710b0ab9b50633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lives
+  currentLives: 5
+  livesCounter: {fileID: 1540231785}
 --- !u!1001 &1080757930
 PrefabInstance:
   m_ObjectHideFlags: 0
