@@ -1343,6 +1343,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   playerPawn: {fileID: 1068091266}
   meteors: []
+  TitleScreenStateObject: {fileID: 0}
+  MainMenuStateObject: {fileID: 0}
+  OptionsScreenStateObject: {fileID: 0}
+  CreditsScreenStateObject: {fileID: 0}
   GameplayStateObject: {fileID: 1604163246}
   GameOverStateObject: {fileID: 1930759367}
 --- !u!4 &562982187
@@ -3044,7 +3048,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775c4126dcf48ff4e943fda9a4e35e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  currentLives: 10
   currentHealth: 100
   currentVolume: 0
   maxHealth: 100
@@ -4084,7 +4087,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: '
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -4111,7 +4116,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.6
+  m_fontSize: 72
   m_fontSizeBase: 11
   m_fontWeight: 400
   m_enableAutoSizing: 1
