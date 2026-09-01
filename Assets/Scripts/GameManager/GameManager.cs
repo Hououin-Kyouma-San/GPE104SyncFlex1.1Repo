@@ -1,5 +1,3 @@
-using NUnit.Framework;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,10 +14,6 @@ public class GameManager : MonoBehaviour
     public List<DeathMeteor> meteors;
 
     // Game states
-    //public GameObject TitleScreenStateObject;
-    //public GameObject MainMenuStateObject;
-    //public GameObject OptionsScreenStateObject;
-    //public GameObject CreditsScreenStateObject;
     public GameObject GameplayStateObject;
     public GameObject GameOverStateObject;
 
@@ -77,43 +71,7 @@ public class GameManager : MonoBehaviour
         {
             GameOverStateObject.SetActive(false);
         }
-        //TitleScreenStateObject.SetActive(false);
-        //MainMenuStateObject.SetActive(false);
-        //OptionsScreenStateObject.SetActive(false);
-        //CreditsScreenStateObject.SetActive(false);
     }
-
-    //// Activates title screen
-    //public void ActivateTitleScreen()
-    //{
-    //    DeactivateAllStates();
-
-    //    TitleScreenStateObject.SetActive(true);
-    //}
-
-    //// Activates main menu screen
-    //public void ActivateMainMenuScreen()
-    //{
-    //    DeactivateAllStates();
-
-    //    MainMenuStateObject.SetActive(true);
-    //}
-
-    //// Activates options screen
-    //public void ActivateOptionsScreen()
-    //{
-    //    DeactivateAllStates();
-
-    //    OptionsScreenStateObject.SetActive(true);
-    //}
-
-    //// Activates credits screen
-    //public void ActivateCreditsScreen()
-    //{
-    //    DeactivateAllStates();
-
-    //    CreditsScreenStateObject.SetActive(true);
-    //}
 
     // Activates Gameplay screen
     public void ActivateGameplay()
@@ -121,10 +79,6 @@ public class GameManager : MonoBehaviour
         DeactivateAllStates();
 
         GameplayStateObject.SetActive(true);
-
-        // Do anything else to get our game to run
-
-            // TODO: Return to implement fully
     }
 
     // Activates game over screen
