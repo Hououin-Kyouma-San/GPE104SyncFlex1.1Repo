@@ -105,11 +105,12 @@ public class Health : MonoBehaviour
                 {
                     // Resets health after respawning and subtracts one life
                     SetHealth(maxHealth);
+                    UpdateFillAmount();
                     currentLives = currentLives - 1;
                 }
 
                 // Activates if there are no health or lives
-                else
+                else if (currentHealth >= 0 && currentLives >= 0)
                 {
                     // Disables the gameObject containing the component
                     gameObject.SetActive(false);

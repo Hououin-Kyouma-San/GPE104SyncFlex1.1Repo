@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Death : Health
+public abstract class Death : MonoBehaviour
 {
     // Creates new 2D audio spawner
     public static AudioSource PlayClip2D(AudioClip clip, float volume)
