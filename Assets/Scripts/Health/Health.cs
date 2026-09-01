@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public float currentLives;
+    public int currentLives;
 
-    //public TMP_Text livesCounter;
+    public TextMeshProUGUI livesCounter;
 
     public float currentHealth;
 
@@ -25,7 +25,7 @@ public class Health : MonoBehaviour
     //public void SetVolume(float volumeAmount)
     //{
     //    AudioSource audioComponent = GetComponent<AudioSource>(); 
-        
+
     //    audioComponent.volume = volumeAmount;
     //} Testing
 
@@ -35,11 +35,12 @@ public class Health : MonoBehaviour
     // bool - can store values of either true or false
     // char - can store a single character
 
-    //// Lives functions
-    //public float GetLives()
-    //{
-    //    return currentLives;
-    //}
+    // Update function
+    void Update()
+    {
+        UpdateLives();
+    }
+
 
     // Healing functions
     public float GetHealth()
@@ -104,10 +105,8 @@ public class Health : MonoBehaviour
                     SetHealth(maxHealth);
                     UpdateFillAmount();
 
-                    // Resets lives amount and UI after respawning
+                    // Subtracts one life after respawning
                     currentLives = currentLives - 1;
-                    //UpdateLives();
-                    /*Implement*/
 
                     // Resets speed after respawning
                     GetComponent<StarShipPawn>().BrakeRelease();
@@ -128,6 +127,14 @@ public class Health : MonoBehaviour
         if (healthBar != null)
         {
             healthBar.fillAmount = currentHealth / maxHealth;
+        }
+    }
+
+    public void UpdateLives()
+    {
+        if(livesCounter != null)
+        {
+            livesCounter.text = "" + currentLives;
         }
     }
 }

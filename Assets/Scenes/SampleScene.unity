@@ -3045,7 +3045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   currentLives: 10
-  livesCounter: {fileID: 0}
+  livesCounter: {fileID: 1540231785}
   currentHealth: 100
   currentVolume: 0
   maxHealth: 100
