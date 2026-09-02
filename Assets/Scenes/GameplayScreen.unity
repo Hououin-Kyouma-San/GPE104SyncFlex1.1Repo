@@ -1343,10 +1343,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   playerPawn: {fileID: 1068091266}
   meteors: []
-  TitleScreenStateObject: {fileID: 0}
-  MainMenuStateObject: {fileID: 0}
-  OptionsScreenStateObject: {fileID: 0}
-  CreditsScreenStateObject: {fileID: 0}
   GameplayStateObject: {fileID: 1604163246}
   GameOverStateObject: {fileID: 1930759367}
 --- !u!4 &562982187
@@ -3184,9 +3180,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1068091261}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8615205d05270b3498507017c9ec4f5d, type: 3}
+  m_Script: {fileID: 11500000, guid: a1bdb6a40ccd0c54ea8d3e9bdb929a6a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DeathRespawn
+  m_EditorClassIdentifier: Assembly-CSharp::DeathDestroy
 --- !u!1001 &1080757930
 PrefabInstance:
   m_ObjectHideFlags: 0

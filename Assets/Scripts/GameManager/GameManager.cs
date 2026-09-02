@@ -1,8 +1,7 @@
-using NUnit.Framework;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,18 +14,8 @@ public class GameManager : MonoBehaviour
     public List<DeathMeteor> meteors;
 
     // Game states
-    public GameObject TitleScreenStateObject;
-    public GameObject MainMenuStateObject;
-    public GameObject OptionsScreenStateObject;
-    public GameObject CreditsScreenStateObject;
     public GameObject GameplayStateObject;
     public GameObject GameOverStateObject;
-
-    // Quit function
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
 
     private void Awake()
     {
@@ -36,7 +25,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
 
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -46,13 +35,13 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ActivateTitleScreen();
+        ActivateGameplay();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerPawn.isActiveAndEnabled == false)
+        if (playerPawn != null && playerPawn.isActiveAndEnabled == false)
         {
             Debug.Log("Failure");
 
@@ -74,44 +63,14 @@ public class GameManager : MonoBehaviour
     // Deactivates all screen objects
     private void DeactivateAllStates()
     {
-        TitleScreenStateObject.SetActive(false);
-        MainMenuStateObject.SetActive(false);
-        OptionsScreenStateObject.SetActive(false);
-        CreditsScreenStateObject.SetActive(false);
-        GameplayStateObject.SetActive(false);
-        GameOverStateObject.SetActive(false);
-    }
-
-    // Activates title screen
-    public void ActivateTitleScreen()
-    {
-        DeactivateAllStates();
-
-        TitleScreenStateObject.SetActive(true);
-    }
-
-    // Activates main menu screen
-    public void ActivateMainMenuScreen()
-    {
-        DeactivateAllStates();
-
-        MainMenuStateObject.SetActive(true);
-    }
-
-    // Activates options screen
-    public void ActivateOptionsScreen()
-    {
-        DeactivateAllStates();
-
-        OptionsScreenStateObject.SetActive(true);
-    }
-
-    // Activates credits screen
-    public void ActivateCreditsScreen()
-    {
-        DeactivateAllStates();
-
-        CreditsScreenStateObject.SetActive(true);
+        if (GameplayStateObject != null)
+        {
+            GameplayStateObject.SetActive(false);
+        }
+        if (GameOverStateObject != null)
+        {
+            GameOverStateObject.SetActive(false);
+        }
     }
 
     // Activates Gameplay screen
@@ -120,17 +79,18 @@ public class GameManager : MonoBehaviour
         DeactivateAllStates();
 
         GameplayStateObject.SetActive(true);
-
-        // Do anything else to get our game to run
-
-            // TODO: Return to implement fully
     }
 
     // Activates game over screen
     public void ActivateGameOverScreen()
     {
+        //GameOverStateObject.SetActive(true);
         DeactivateAllStates();
 
-        GameOverStateObject.SetActive(true);
+        if (GameOverStateObject == isActiveAndEnabled && playerPawn != null)
+        {
+            SceneManager.UnloadSceneAsync(3);
+            SceneManager.LoadScene(4);
+        }
     }
 }
