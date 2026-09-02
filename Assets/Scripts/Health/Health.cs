@@ -5,11 +5,8 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     public float currentHealth;
-
     public float currentVolume;
-
     public float maxHealth;
-
     public Image healthBar;
 
     // Variable for the AudioClip (sound file!)
@@ -17,13 +14,6 @@ public class Health : MonoBehaviour
 
     // Variable for the AudioClip (sound file!)
     public AudioClip deathSoundEffect;
-
-    //public void SetVolume(float volumeAmount)
-    //{
-    //    AudioSource audioComponent = GetComponent<AudioSource>(); 
-
-    //    audioComponent.volume = volumeAmount;
-    //} Testing
 
     // int - whole number values (positive, negative, and 0)
     // float - fractional number values
@@ -87,15 +77,15 @@ public class Health : MonoBehaviour
                 // Activates death function
                 deathComponent.Die();
 
-                //// Checks if there is no health and if Lives component exists
-                //if (currentHealth <= 0 && GetComponent<Lives>() != null)
-                //{
-                //    // Activates respawn function inside Lives component
-                //    GetComponent<Lives>().Respawn();
-                //}
+                // Checks if there is no health and if Lives component exists
+                if (currentHealth <= 0 && GetComponent<Lives>() != null)
+                {
+                    // Activates respawn function inside Lives component
+                    GetComponent<Lives>().Respawn();
+                }
 
                 // Activates if there are no health or lives
-                /*else*/ if (currentHealth >= 0 /*&& GetComponent<Lives>() == null*/)
+                else if (currentHealth >= 0 && GetComponent<Lives>() == null)
                 {
                     // Disables the gameObject containing the component
                     gameObject.SetActive(false);
