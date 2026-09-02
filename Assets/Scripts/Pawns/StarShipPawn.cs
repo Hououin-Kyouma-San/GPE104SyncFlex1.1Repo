@@ -1,7 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
-using UnityEngine.UIElements;
 
 public class StarShipPawn : Pawn
 {
@@ -29,7 +27,7 @@ public class StarShipPawn : Pawn
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     // General movement controls
@@ -67,25 +65,28 @@ public class StarShipPawn : Pawn
 
     public override void Afterburners()
     {
-        // Create timer coroutine
-        StartCoroutine(timer());
-        IEnumerator timer()
+        if (this == isActiveAndEnabled)
         {
-            // Set max boost speed
-            moveSpeed = baseSpeed + boostSpeed;
-            if (moveSpeed >= maxSpeed)
+            // Create timer coroutine
+            StartCoroutine(timer());
+            IEnumerator timer()
             {
-                moveSpeed = maxSpeed;
-            }
+                // Set max boost speed
+                moveSpeed = baseSpeed + boostSpeed;
+                if (moveSpeed >= maxSpeed)
+                {
+                    moveSpeed = maxSpeed;
+                }
 
-            // Set timer delay
-            yield return new WaitForSeconds(15);
+                // Set timer delay
+                yield return new WaitForSeconds(15);
 
-            // Prevent speed from going below baseline
-            moveSpeed = boostSpeed - baseSpeed;
-            if (moveSpeed <= baseSpeed)
-            {
-                moveSpeed = baseSpeed;
+                // Prevent speed from going below baseline
+                moveSpeed = boostSpeed - baseSpeed;
+                if (moveSpeed <= baseSpeed)
+                {
+                    moveSpeed = baseSpeed;
+                }
             }
         }
     }
