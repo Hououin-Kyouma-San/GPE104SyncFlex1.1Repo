@@ -52,11 +52,13 @@ public class Health : MonoBehaviour
 
         UpdateFillAmount();
     }
-
+    
     // Damage functions
     public void TakeDamage(float amount)
     {
-        if (damageSoundEffect !=null)
+        Health health = gameObject.GetComponent<Health>();
+
+        if (damageSoundEffect != null && health != null)
         {
             // Play back our sound effect
             AudioSource.PlayClipAtPoint(damageSoundEffect, transform.position);

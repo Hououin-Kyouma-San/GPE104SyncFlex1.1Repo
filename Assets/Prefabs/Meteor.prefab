@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 8344941123073019349}
   - component: {fileID: 8039645000086997867}
   - component: {fileID: 1501446716540431679}
-  - component: {fileID: 1660852907560774770}
   - component: {fileID: -8583834402209080208}
   - component: {fileID: -5043368053307356396}
   - component: {fileID: -546803858878777765}
+  - component: {fileID: 3985351339356897817}
   m_Layer: 0
   m_Name: Meteor
   m_TagString: Untagged
@@ -191,20 +191,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &1660852907560774770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3658583821992081697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe66b7239144f8b4f86ae93fcee06cc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DamageComponent
-  damageAmount: 10
-  instantKill: 0
 --- !u!114 &-8583834402209080208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,3 +233,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea54471b725648c4497d2d3cb1a1eb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScreenWrap
+--- !u!114 &3985351339356897817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658583821992081697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4bc2e6697c9b8543a8b0b385162dbb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewDamage
+  damageAmount: 25
+  instantKill: 0
+  destroyOnImpact: 0

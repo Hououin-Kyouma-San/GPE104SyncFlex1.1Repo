@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 8880833714254435894}
   - component: {fileID: 4715133508051788998}
   - component: {fileID: 1491280449236410476}
+  - component: {fileID: -4582990557984414279}
+  - component: {fileID: -1305936513579914294}
+  - component: {fileID: 5170421328824855556}
   - component: {fileID: 6975512006471513661}
   - component: {fileID: 5494312201577317885}
   m_Layer: 0
@@ -106,7 +109,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da694aad9f1ac1548a78b2381625b2c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Missile
-  speed: 1
+  speed: 2.5
+--- !u!114 &-4582990557984414279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058235617153373868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4bc2e6697c9b8543a8b0b385162dbb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewDamage
+  damageAmount: 25
+  damageDelay: 0
+  instantKill: 1
+  destroyOnImpact: 1
+--- !u!114 &-1305936513579914294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058235617153373868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775c4126dcf48ff4e943fda9a4e35e54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  currentHealth: 10
+  currentVolume: 0
+  maxHealth: 10
+  healthBar: {fileID: 0}
+  damageSoundEffect: {fileID: 0}
+  deathSoundEffect: {fileID: 0}
+--- !u!114 &5170421328824855556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058235617153373868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1bdb6a40ccd0c54ea8d3e9bdb929a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeathDestroy
 --- !u!60 &6975512006471513661
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -5,17 +5,18 @@ public class Damage : MonoBehaviour
 {
     public float damageAmount;
     public bool instantKill;
+    public bool destroyOnImpact;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //Damage gameObject with health component on collision
@@ -24,50 +25,63 @@ public class Damage : MonoBehaviour
         Health health = collision.gameObject.GetComponent<Health>();
         Pawn starship = collision.gameObject.GetComponent<Pawn>();
 
-        // Checks for health, and checks if movement speed is less or at max speed
-        if (health != null && starship.moveSpeed <= starship.maxSpeed)
+        if (health != null && starship != null)
         {
-            // Will kill instantly at all speeds if true
-            if (instantKill)
+            // Checks for health, and checks if movement speed is less or at max speed
+            if (health != null && starship.moveSpeed <= starship.maxSpeed)
             {
-                // Create timer coroutine
-                StartCoroutine(timer());
-                IEnumerator timer()
+                // Will kill instantly at all speeds if true
+                if (instantKill)
                 {
-                    // Set timer delay
-                    yield return new WaitForSeconds(0.125f);
-
-                    if (health != null)
+                    // Create timer coroutine
+                    StartCoroutine(timer());
+                    IEnumerator timer()
                     {
-                        health.TakeDamage(health.currentHealth);
+                        // Set timer delay
+                        yield return new WaitForSeconds(0.125f);
+
+                        if (health != null)
+                        {
+                            health.TakeDamage(health.currentHealth);
+                        }
                     }
                 }
-            }
-            // Checks for health, and causes damage *only* if movement speed is default or higher
-            else if (health != null && starship.moveSpeed >= starship.baseSpeed)
-            {
-                // Create timer coroutine
-                StartCoroutine(timer());
-                IEnumerator timer()
+                // Checks for health, and causes damage *only* if movement speed is default or higher
+                else if (health != null && starship.moveSpeed >= starship.baseSpeed)
                 {
-                    // Set timer delay
-                    yield return new WaitForSeconds(0.125f);
-
-                    // Checks if under max speed, and deals damage based on damage variable
-                    if (starship.moveSpeed < starship.maxSpeed)
+                    // Create timer coroutine
+                    StartCoroutine(timer());
+                    IEnumerator timer()
                     {
-                        health.TakeDamage(damageAmount);
-                    }
+                        // Set timer delay
+                        yield return new WaitForSeconds(0.125f);
 
-                    // Checks for max speed, and instantly kills if true (doesn't use instantKill)
-                    else if (starship.moveSpeed == starship.maxSpeed)
-                    {
-                        health.TakeDamage(health.currentHealth);
+                        // Checks if under max speed, and deals damage based on damage variable
+                        if (starship.moveSpeed < starship.maxSpeed)
+                        {
+                            health.TakeDamage(damageAmount);
+                        }
+
+                        // Checks for max speed, and instantly kills if true (doesn't use instantKill)
+                        else if (starship.moveSpeed == starship.maxSpeed)
+                        {
+                            health.TakeDamage(health.currentHealth);
+                        }
                     }
                 }
             }
         }
-    }    
+
+        else if (health != null)
+        {
+            health.TakeDamage(damageAmount);
+            if (destroyOnImpact)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
 
     //Damage gameObject with health component on trigger, follows tutorial
     private void OnTriggerEnter2D(Collider2D collision)
