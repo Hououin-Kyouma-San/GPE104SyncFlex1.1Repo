@@ -1,47 +1,30 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class ScreenWrap : MonoBehaviour
 {
-    private Rigidbody2D myRigidBody;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        myRigidBody = GetComponent<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        // Camera checks where you are in the world
-        Vector3 ScreenPos = Camera.main.WorldToScreenPoint(transform.position);
-
-        // Get the sides of the screen
-        float rightSideOfScreenInWorld = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height)).x;
-        float leftSideOfScreenInWorld = Camera.main.ScreenToWorldPoint(new Vector2(0f, 0f)).x;
-
-        float topSideOfScreenInWorld = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height)).y;
-        float bottomSideOfScreenInWorld = Camera.main.ScreenToWorldPoint(new Vector2(0f, 0f)).y;
-
-        // If player is moving through left side of the screen
-        if (ScreenPos.x <= 0)
+        // Converts from world coordinates to viewport coordinates in 0 -> 1 range, independent of aspect ratio
+        Vector3 viewportPosition = Camera.main.WorldToViewportPoint(transform.position);
+        Vector3 moveAdjustment = Vector3.zero;
+        // Checks if object is out of range and wraps to corresponding opposite position
+        if (viewportPosition.x < 0)
         {
-            transform.position = new Vector2(rightSideOfScreenInWorld, transform.position.y);
+            moveAdjustment.x += 1;
         }
-
-        else if (ScreenPos.x >= Screen.width)
+        else if (viewportPosition.x > 1)
         {
-            transform.position = new Vector2(leftSideOfScreenInWorld, transform.position.y);
+            moveAdjustment.x -= 1;
         }
-
-        else if (ScreenPos.y <= 0)
+        else if (viewportPosition.y < 0)
         {
-            transform.position = new Vector2(transform.position.x, topSideOfScreenInWorld);
+            moveAdjustment.y += 1;
         }
-
-        else if (ScreenPos.y >= Screen.height)
+        else if (viewportPosition.y > 1)
         {
-            transform.position = new Vector2(transform.position.x, bottomSideOfScreenInWorld); ;
+            moveAdjustment.y -= 1;
         }
+        // Converts from viewport coordinates back into world coordinates, applying transform to object
+        transform.position = Camera.main.ViewportToWorldPoint(viewportPosition + moveAdjustment);
     }
 }
