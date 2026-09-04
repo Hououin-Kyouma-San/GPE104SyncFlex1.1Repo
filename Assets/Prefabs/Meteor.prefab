@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 8344941123073019349}
   - component: {fileID: 8039645000086997867}
   - component: {fileID: 1501446716540431679}
-  - component: {fileID: 1660852907560774770}
   - component: {fileID: -8583834402209080208}
+  - component: {fileID: 1660852907560774770}
+  - component: {fileID: 1706885520595377199}
   - component: {fileID: -5043368053307356396}
   - component: {fileID: -546803858878777765}
   m_Layer: 0
   m_Name: Meteor
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,20 +192,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &1660852907560774770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3658583821992081697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe66b7239144f8b4f86ae93fcee06cc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DamageComponent
-  damageAmount: 10
-  instantKill: 0
 --- !u!114 &-8583834402209080208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +210,38 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   damageSoundEffect: {fileID: 8300000, guid: 8401456349c492a489ed90469e317e43, type: 3}
   deathSoundEffect: {fileID: 0}
+--- !u!114 &1660852907560774770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658583821992081697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe66b7239144f8b4f86ae93fcee06cc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageComponent
+  damageAmount: 10
+  damageDelay: 0.0875
+  instantKill: 0
+  destroyOnImpact: 0
+--- !u!114 &1706885520595377199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658583821992081697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66c111eab20d2dc41851a63370886dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Meteor
+  sprites:
+  - {fileID: -925345978958199149, guid: c8568635b94061e4d88f71cb742a9def, type: 3}
+  speedMultiplier: 0.325
+  maxLifetime: 30
 --- !u!114 &-5043368053307356396
 MonoBehaviour:
   m_ObjectHideFlags: 0

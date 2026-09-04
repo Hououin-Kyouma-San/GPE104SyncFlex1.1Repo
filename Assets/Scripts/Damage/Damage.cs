@@ -4,90 +4,86 @@ using UnityEngine;
 public class Damage : MonoBehaviour
 {
     public float damageAmount;
+    public float damageDelay;
     public bool instantKill;
+    public bool destroyOnImpact;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    //Damage gameObject with health component on collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Health health = collision.gameObject.GetComponent<Health>();
         Pawn starship = collision.gameObject.GetComponent<Pawn>();
 
-        // Checks for health, and checks if movement speed is less or at max speed
-        if (health != null && starship.moveSpeed <= starship.maxSpeed)
+        // Checks if health exists and if starship exists
+        if (health != null && starship != null)
         {
-            // Will kill instantly at all speeds if true
-            if (instantKill)
+            // Checks if health exists and if speed is greater than or equal to baseSpeed
+            if (health != null && starship.moveSpeed >= starship.baseSpeed)
             {
-                // Create timer coroutine
+                // Creates timer coroutine
                 StartCoroutine(timer());
                 IEnumerator timer()
                 {
-                    // Set timer delay
-                    yield return new WaitForSeconds(0.125f);
+                    yield return new WaitForSeconds(damageDelay);
 
-                    if (health != null)
-                    {
-                        health.TakeDamage(health.currentHealth);
-                    }
-                }
-            }
-            // Checks for health, and causes damage *only* if movement speed is default or higher
-            else if (health != null && starship.moveSpeed >= starship.baseSpeed)
-            {
-                // Create timer coroutine
-                StartCoroutine(timer());
-                IEnumerator timer()
-                {
-                    // Set timer delay
-                    yield return new WaitForSeconds(0.125f);
-
-                    // Checks if under max speed, and deals damage based on damage variable
+                    // Checks if speed is less than maxSpeed
                     if (starship.moveSpeed < starship.maxSpeed)
                     {
                         health.TakeDamage(damageAmount);
                     }
-
-                    // Checks for max speed, and instantly kills if true (doesn't use instantKill)
+                    // Checks if speed is equal to maxSpeed
                     else if (starship.moveSpeed == starship.maxSpeed)
                     {
                         health.TakeDamage(health.currentHealth);
                     }
+                    // Checks if destroyOnImpact is true
+                    if (destroyOnImpact)
+                    {
+                        Destroy(gameObject);
+                    }
                 }
             }
         }
-    }    
-
-    //Damage gameObject with health component on trigger, follows tutorial
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Health health = collision.GetComponent<Health>();
-
-        if (health != null)
+        // Checks if health exists and if starship doesn't
+        if (health != null && starship == null)
         {
-            if (instantKill)
+            // Creates timer coroutine
+            StartCoroutine(timer());
+            IEnumerator timer()
             {
-                health.TakeDamage(health.currentHealth);
+                yield return new WaitForSeconds(damageDelay);
 
-                Destroy(gameObject);
-            }
-            else
-            {
-                health.TakeDamage(damageAmount);
+                // Checks if health exists and if starship doesn't
+                if (health != null && starship == null)
+                {
+                    health.TakeDamage(damageAmount);
+                }
+                // Checks if destroyOnImpact is true
+                if (destroyOnImpact)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
+        // Checks if instantKill is true
+        if (instantKill)
+        {
+            // Creates timer coroutine
+            StartCoroutine(timer());
+            IEnumerator timer()
+            {
+                yield return new WaitForSeconds(damageDelay);
 
-        Debug.Log("The GameObject of the other object is named: " + collision.gameObject.name);
+                // Checks if health or starship exists
+                if (health != null || starship != null)
+                {
+                    health.TakeDamage(health.currentHealth);
+                }
+                // Checks if destroyOnImpact is true
+                if (destroyOnImpact)
+                {
+                    Destroy(gameObject);
+                }
+            }
+        }
     }
 }

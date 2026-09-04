@@ -1,14 +1,12 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
     public float currentHealth;
-
     public float currentVolume;
-
     public float maxHealth;
-
     public Image healthBar;
 
     // Variable for the AudioClip (sound file!)
@@ -17,30 +15,11 @@ public class Health : MonoBehaviour
     // Variable for the AudioClip (sound file!)
     public AudioClip deathSoundEffect;
 
-    //public void SetVolume(float volumeAmount)
-    //{
-    //    AudioSource audioComponent = GetComponent<AudioSource>(); 
-        
-    //    audioComponent.volume = volumeAmount;
-    //} Testing
-
     // int - whole number values (positive, negative, and 0)
     // float - fractional number values
     // string - can store characters
     // bool - can store values of either true or false
     // char - can store a single character
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     // Healing functions
     public float GetHealth()
@@ -67,7 +46,7 @@ public class Health : MonoBehaviour
     // Damage functions
     public void TakeDamage(float amount)
     {
-        if (damageSoundEffect !=null)
+        if (damageSoundEffect != null)
         {
             // Play back our sound effect
             AudioSource.PlayClipAtPoint(damageSoundEffect, transform.position);
@@ -95,7 +74,22 @@ public class Health : MonoBehaviour
                     Death.PlayClip2D(deathSoundEffect, 1);
                 }
 
+                // Activates death function
                 deathComponent.Die();
+
+                // Checks if there is no health and if Lives component exists
+                if (currentHealth <= 0 && GetComponent<Lives>() != null)
+                {
+                    // Activates respawn function inside Lives component
+                    GetComponent<Lives>().Respawn();
+                }
+
+                // Activates if there are no health or lives
+                else if (currentHealth >= 0 && GetComponent<Lives>() == null)
+                {
+                    // Disables the gameObject containing the component
+                    gameObject.SetActive(false);
+                }
             }
         }
     }
