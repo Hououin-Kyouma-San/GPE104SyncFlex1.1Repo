@@ -12,11 +12,11 @@ public class StarShipPawn : Pawn
         // Sets playerPawn in GameManager, gets RigidBody2D physics, and divides control values
         GameManager.instance.playerPawn = this;
         _rigidBody = GetComponent<Rigidbody2D>();
-        moveSpeed = moveSpeed * 0.1f;
-        baseSpeed = baseSpeed * 0.1f;
-        boostSpeed = boostSpeed * 0.1f;
-        strafeSpeed = strafeSpeed * 0.1f;
-        rotateSpeed = rotateSpeed * 0.025f;
+        moveSpeed = moveSpeed * 10.0f;
+        baseSpeed = baseSpeed * 10.0f;
+        boostSpeed = boostSpeed * 10.0f;
+        strafeSpeed = strafeSpeed * 10.0f;
+        rotateSpeed = rotateSpeed * 10.0f;
     }
     void Start()
     {
@@ -29,33 +29,33 @@ public class StarShipPawn : Pawn
     // Forward and reverse controls
     public override void MoveUp()
     {
-        _rigidBody.AddForce(this.transform.up * this.moveSpeed);
+        _rigidBody.AddForce(this.transform.up * this.moveSpeed * Time.deltaTime);
     }
     public override void MoveDown()
     {
-        _rigidBody.AddForce(-this.transform.up * this.moveSpeed);
+        _rigidBody.AddForce(-this.transform.up * this.moveSpeed * Time.deltaTime);
     }
 
     // Strafe controls
     public override void StrafeLeft()
     {
-        _rigidBody.AddForce(-this.transform.right * this.strafeSpeed);
+        _rigidBody.AddForce(-this.transform.right * this.strafeSpeed * Time.deltaTime);
     }
     public override void StrafeRight()
     {
-        _rigidBody.AddForce(this.transform.right * this.strafeSpeed);
+        _rigidBody.AddForce(this.transform.right * this.strafeSpeed * Time.deltaTime);
     }
 
     // Rotation controls
     public override void RotateLeft()
     {
         //tf.Rotate(0.0f, 0.0f, rotateSpeed * Time.deltaTime);
-        _rigidBody.AddTorque(rotateSpeed);
+        _rigidBody.AddTorque(rotateSpeed * Time.deltaTime);
     }
     public override void RotateRight()
     {
         //tf.Rotate(0.0f, 0.0f, -rotateSpeed * Time.deltaTime);
-        _rigidBody.AddTorque(-rotateSpeed);
+        _rigidBody.AddTorque(-rotateSpeed * Time.deltaTime);
     }
 
     // Boost controls

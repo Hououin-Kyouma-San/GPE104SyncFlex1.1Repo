@@ -23,17 +23,17 @@ public class ShooterBullet : Shooter
             {
                 // First shot fires instantly
                 GameObject bullet1 = Instantiate(bulletInstance, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
-                bullet1.GetComponent<BulletMovement>().speed += starShip.moveSpeed;
+                bullet1.GetComponent<BulletMovement>().speed += starShip.moveSpeed * Time.deltaTime;
 
                 // Sets timed delay after first shot and fires
                 yield return new WaitForSeconds(fireDelay);
                 GameObject bullet2 = Instantiate(bulletInstance, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
-                bullet2.GetComponent<BulletMovement>().speed += starShip.moveSpeed;
+                bullet2.GetComponent<BulletMovement>().speed += starShip.moveSpeed * Time.deltaTime;
 
                 // Sets timed delay after second shot and fires
                 yield return new WaitForSeconds(fireDelay);
                 GameObject bullet3 = Instantiate(bulletInstance, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
-                bullet3.GetComponent<BulletMovement>().speed += starShip.moveSpeed;
+                bullet3.GetComponent<BulletMovement>().speed += starShip.moveSpeed * Time.deltaTime;
             }
         }
     }
