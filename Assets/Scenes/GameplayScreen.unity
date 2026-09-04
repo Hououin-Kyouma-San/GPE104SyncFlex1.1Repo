@@ -1624,7 +1624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MeteorSpawner
   meteorPrefab: {fileID: 1706885520595377199, guid: 1d22c053c84481048bab9102ad534433, type: 3}
   trajectoryVariance: 15
-  spawnRate: 2
+  spawnRate: 7.5
   spawnDistance: 15
   spawnAmount: 1
 --- !u!1 &624205640
@@ -2465,13 +2465,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1068091264}
   - component: {fileID: 1068091263}
+  - component: {fileID: 1068091269}
+  - component: {fileID: 1068091270}
   - component: {fileID: 1068091262}
   - component: {fileID: 1068091266}
   - component: {fileID: 1068091267}
   - component: {fileID: 1068091274}
   - component: {fileID: 1068091273}
-  - component: {fileID: 1068091269}
-  - component: {fileID: 1068091270}
   - component: {fileID: 1068091271}
   - component: {fileID: 1068091272}
   m_Layer: 0
@@ -2582,10 +2582,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95987a4ddcaec2841bdcecc85b495670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StarShipPawn
-  moveSpeed: 5
-  strafeSpeed: 3.75
-  rotateSpeed: 270
-  boostSpeed: 10
+  moveSpeed: 1
+  strafeSpeed: 0.625
+  rotateSpeed: 0.375
+  boostSpeed: 1.5
   minX: -7
   maxX: 7
   minY: -3.5
@@ -2687,9 +2687,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_Mass: 0.125
+  m_LinearDamping: 1.25
+  m_AngularDamping: 2.5
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:

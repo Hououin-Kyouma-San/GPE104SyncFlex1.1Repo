@@ -3,66 +3,62 @@ using UnityEngine;
 
 public class StarShipPawn : Pawn
 {
+    private Rigidbody2D _rigidBody;
     private Transform tf;
-
     private Shooter shooter;
 
     private void Awake()
     {
+        // Sets playerPawn in GameManager, gets RigidBody2D physics, and divides control values
         GameManager.instance.playerPawn = this;
+        _rigidBody = GetComponent<Rigidbody2D>();
+        moveSpeed = moveSpeed * 0.1f;
+        baseSpeed = baseSpeed * 0.1f;
+        boostSpeed = boostSpeed * 0.1f;
+        strafeSpeed = strafeSpeed * 0.1f;
+        rotateSpeed = rotateSpeed * 0.025f;
     }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         tf = transform;
         maxSpeed = moveSpeed + boostSpeed;
         baseSpeed = moveSpeed;
         shooter = GetComponent<Shooter>();
-
-        //GetComponent<Health>().TakeDamage(10.0f);
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    // General movement controls
+    // Forward and reverse controls
     public override void MoveUp()
     {
-        tf.position = tf.position + (tf.up * moveSpeed * Time.deltaTime);
+        _rigidBody.AddForce(this.transform.up * this.moveSpeed);
     }
-
     public override void MoveDown()
     {
-        tf.position = tf.position + (-tf.up * moveSpeed * Time.deltaTime);
+        _rigidBody.AddForce(-this.transform.up * this.moveSpeed);
     }
 
+    // Strafe controls
     public override void StrafeLeft()
     {
-        tf.position = tf.position + (-tf.right * strafeSpeed * Time.deltaTime);
+        _rigidBody.AddForce(-this.transform.right * this.strafeSpeed);
     }
-
     public override void StrafeRight()
     {
-        tf.position = tf.position + (tf.right * strafeSpeed * Time.deltaTime);
+        _rigidBody.AddForce(this.transform.right * this.strafeSpeed);
     }
 
+    // Rotation controls
     public override void RotateLeft()
     {
-        tf.Rotate(0f, 0f, rotateSpeed * Time.deltaTime);
+        //tf.Rotate(0.0f, 0.0f, rotateSpeed * Time.deltaTime);
+        _rigidBody.AddTorque(rotateSpeed);
     }
-
     public override void RotateRight()
     {
-        tf.Rotate(0f, 0f, -rotateSpeed * Time.deltaTime);
+        //tf.Rotate(0.0f, 0.0f, -rotateSpeed * Time.deltaTime);
+        _rigidBody.AddTorque(-rotateSpeed);
     }
 
-    // Boost and braking controls
-
+    // Boost controls
     public override void Afterburners()
     {
         if (this == isActiveAndEnabled)
@@ -79,7 +75,7 @@ public class StarShipPawn : Pawn
                 }
 
                 // Set timer delay
-                yield return new WaitForSeconds(15);
+                yield return new WaitForSeconds(5.0f);
 
                 // Prevent speed from going below baseline
                 moveSpeed = boostSpeed - baseSpeed;
@@ -91,6 +87,7 @@ public class StarShipPawn : Pawn
         }
     }
 
+    // Braking controls
     public override void Airbrakes()
     {
         // Sloooooowww dooooowwwnnnnn
@@ -100,7 +97,6 @@ public class StarShipPawn : Pawn
             moveSpeed = 0;
         }
     }
-
     public override void BrakeRelease()
     {
         moveSpeed = baseSpeed;
@@ -114,7 +110,7 @@ public class StarShipPawn : Pawn
         float randomY = Random.Range(minY, maxY);
 
         // Create mew vector position for teleporting
-        Vector3 newPosition = new Vector3(randomX, randomY, 0);
+        Vector3 newPosition = new Vector3(randomX, randomY, 0.0f);
         tf.position = newPosition;
     }
     public override void TeleportUp()
@@ -124,10 +120,9 @@ public class StarShipPawn : Pawn
         float yPos = transform.position.y;
 
         // Teleport up along Y axis
-        Vector3 newPosition = new Vector3(xPos, yPos + (float)2.5);
+        Vector3 newPosition = new Vector3(xPos, yPos + (float)2.5f);
         tf.position = newPosition;
     }
-
     public override void TeleportDown()
     {
         // Get current X and Y positions
@@ -135,10 +130,9 @@ public class StarShipPawn : Pawn
         float yPos = transform.position.y;
 
         // Teleport down along Y axis
-        Vector3 newPosition = new Vector3(xPos, yPos - (float)2.5);
+        Vector3 newPosition = new Vector3(xPos, yPos - (float)2.5f);
         tf.position = newPosition;
     }
-
     public override void TeleportLeft()
     {
         // Get current X and Y positions
@@ -146,10 +140,9 @@ public class StarShipPawn : Pawn
         float yPos = transform.position.y;
 
         // Teleport left along X axis
-        Vector3 newPosition = new Vector3(xPos - (float)2.5, yPos);
+        Vector3 newPosition = new Vector3(xPos - (float)2.5f, yPos);
         tf.position = newPosition;
     }
-
     public override void TeleportRight()
     {
         // Get current X and Y positions
@@ -157,7 +150,7 @@ public class StarShipPawn : Pawn
         float yPos = transform.position.y;
 
         // Teleport right along X axis
-        Vector3 newPosition = new Vector3(xPos + (float)2.5, yPos);
+        Vector3 newPosition = new Vector3(xPos + (float)2.5f, yPos);
         tf.position = newPosition;
     }
 

@@ -240,7 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Meteor
   sprites:
   - {fileID: -925345978958199149, guid: c8568635b94061e4d88f71cb742a9def, type: 3}
-  speedMultiplier: 0.25
+  speedMultiplier: 0.325
   maxLifetime: 30
 --- !u!114 &-5043368053307356396
 MonoBehaviour:
