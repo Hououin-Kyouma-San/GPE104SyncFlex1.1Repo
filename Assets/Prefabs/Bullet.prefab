@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 6775732734290235933}
   - component: {fileID: -8135956795938350252}
   - component: {fileID: 4923160229197696527}
-  - component: {fileID: -8135956795938350252}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -315,15 +314,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-8135956795938350252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5416607736195990752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea54471b725648c4497d2d3cb1a1eb5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ScreenWrap
