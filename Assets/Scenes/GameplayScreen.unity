@@ -2673,10 +2673,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95987a4ddcaec2841bdcecc85b495670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StarShipPawn
-  moveSpeed: 1
-  strafeSpeed: 0.625
-  rotateSpeed: 0.375
-  boostSpeed: 1.5
+  moveSpeed: 2.5
+  strafeSpeed: 1.25
+  rotateSpeed: 0.75
+  boostSpeed: 5
   minX: -7
   maxX: 7
   minY: -3.5
