@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 875865305935831468}
   - component: {fileID: 8726137323303441198}
-  - component: {fileID: 3010466749052534427}
   - component: {fileID: 6048397115452464786}
+  - component: {fileID: 3010466749052534427}
   - component: {fileID: 7224592795389137067}
   - component: {fileID: 6775732734290235933}
-  - component: {fileID: 4923160229197696527}
   - component: {fileID: -8135956795938350252}
+  - component: {fileID: 4923160229197696527}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -97,33 +97,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!50 &3010466749052534427
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5416607736195990752}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 0
-  m_CollisionDetection: 1
-  m_Constraints: 0
 --- !u!60 &6048397115452464786
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -175,6 +148,33 @@ PolygonCollider2D:
       - {x: 0.044999998, y: -0.044999998}
       - {x: 0.044999998, y: 0.044999998}
   m_UseDelaunayMesh: 1
+--- !u!50 &3010466749052534427
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5416607736195990752}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!114 &7224592795389137067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +189,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BulletMovement
   bulletInstance: {fileID: 0}
   bulletSpawnpoint: {fileID: 0}
-  starShip: {fileID: 0}
   speed: 10
 --- !u!114 &6775732734290235933
 MonoBehaviour:
@@ -206,6 +205,18 @@ MonoBehaviour:
   damageValue: 25
   despawnTime: 3
   destroyOnImpact: 0
+--- !u!114 &-8135956795938350252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5416607736195990752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea54471b725648c4497d2d3cb1a1eb5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScreenWrap
 --- !u!82 &4923160229197696527
 AudioSource:
   m_ObjectHideFlags: 0
@@ -303,15 +314,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-8135956795938350252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5416607736195990752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea54471b725648c4497d2d3cb1a1eb5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ScreenWrap
